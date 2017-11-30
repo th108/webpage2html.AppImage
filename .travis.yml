@@ -1,0 +1,19 @@
+language: generic
+sudo: required
+dist: trusty
+addons:
+  apt:
+    packages:
+    - squashfs-tools
+    - desktop-file-utils
+    
+install:
+    - wget https://raw.githubusercontent.com/AppImage/AppImages/master/recipes/meta/Recipe
+
+script:
+    - ARCH=$(arch)
+    - APP=webpage2html
+    - bash -ex Recipe --no-di $APP.yml
+
+after_success:
+  - curl --upload-file ./out/webpage2html*.AppImage https://transfer.sh/webpage2html-x86_64.AppImage
