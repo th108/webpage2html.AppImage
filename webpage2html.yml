@@ -1,0 +1,29 @@
+app: webpage2html
+binpatch: true
+
+ingredients:
+  dist: jessie
+  sources:
+    - deb http://ftp.de.debian.org/debian/ jessie main contrib
+  packages:
+    - python-minimal
+    - python-bs4
+    - python-lxml
+    - python-requests
+  script:
+    - wget https://raw.githubusercontent.com/zTrix/webpage2html/master/webpage2html.py
+
+script:
+  - cat > webpage2html.desktop <<\EOF
+  - [Desktop Entry]
+  - Version=1.0
+  - Type=Application
+  - Name=webpage2html
+  - Comment=save web pages to a standalone editable html file
+  - Icon=webpage2html
+  - Exec=webpage2html
+  - Terminal=true
+  - EOF
+  - touch webpage2html.png
+  - cp ../webpage2html.py usr/bin/webpage2html
+  - chmod a+x usr/bin/webpage2html
