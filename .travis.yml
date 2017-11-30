@@ -8,7 +8,7 @@ addons:
     - desktop-file-utils
     
 install:
-    - wget https://raw.githubusercontent.com/AppImage/AppImages/master/recipes/meta/Recipe
+    - wget https://raw.githubusercontent.com/AppImage/AppImages/master/pkg2appimage
 
 script:
     - ARCH=$(arch)
