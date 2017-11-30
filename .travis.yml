@@ -13,7 +13,7 @@ install:
 script:
     - ARCH=$(arch)
     - APP=webpage2html
-    - bash -ex Recipe --no-di $APP.yml
+    - bash -ex pkg2appimage --no-di $APP.yml
 
 after_success:
   - curl --upload-file ./out/webpage2html*.AppImage https://transfer.sh/webpage2html-x86_64.AppImage
